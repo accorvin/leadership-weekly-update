@@ -1,6 +1,5 @@
 {
   "name": "leadership-weekly-update",
-  "description": "Skill for collaboratively writing leadership weekly status updates to Confluence.",
   "owner": {
     "name": "accorvin"
   },
