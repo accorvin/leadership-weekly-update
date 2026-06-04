@@ -4,7 +4,7 @@ A Claude Code skill for collaboratively writing weekly leadership status updates
 
 Used by AI Engineering leaders to build the weekly update for their manager. Enforces a high bar — pushes back on low-value items and items that don't fit the expected categories.
 
-Heavily inspired by [etirelli/weekly-update](https://github.com/etirelli/weekly-update).
+> **Credit:** This skill is inspired by and based on [etirelli/weekly-update](https://github.com/etirelli/weekly-update) by [Edson Tirelli](https://github.com/etirelli). The Confluence writing pattern, guided setup flow, and conversational entry validation all follow his original design. Thanks, Edson.
 
 ## What it does
 
@@ -23,14 +23,45 @@ Heavily inspired by [etirelli/weekly-update](https://github.com/etirelli/weekly-
 5. **Key Associate Moves & Personnel Changes** — hires, departures, promotions, org changes
 6. **Big News & Community Footprint** *(only if notable)* — conference talks, blog posts, upstream contributions
 
-## Setup
+## Installation
 
-Run the skill once with no arguments. It walks you through first-time configuration (Confluence parent page, your name/Kerberos ID).
+Run these two commands once per machine:
+
+```bash
+# Add this repo as a Claude Code marketplace
+claude plugin marketplace add accorvin/leadership-weekly-update
+
+# Install the plugin
+claude plugin install leadership-weekly-update
+```
+
+After that, `/leadership-weekly-update` is available as a slash command in any Claude Code session.
+
+## First-time setup
+
+The first time you run `/leadership-weekly-update`, it will walk you through:
+
+1. The Confluence parent page where weekly pages will be created as children
+2. Your name and Kerberos ID (for attribution on entries)
+
+Config is saved to `~/.claude/leadership-weekly-update.json` and reused on subsequent runs.
 
 ## Usage
 
-```
-/leadership-weekly-update <description of what you want to report>
+```bash
+# Conversational mode — Claude will ask what you want to add
+/leadership-weekly-update
+
+# Direct mode — describe your update
+/leadership-weekly-update RHOAI 3.5 GA is on track for June 20, all P1 blockers resolved
 ```
 
-Or run with no arguments for conversational mode.
+## Reconfiguration
+
+To reset and point at a different Confluence page:
+
+```bash
+rm ~/.claude/leadership-weekly-update.json
+```
+
+Then run `/leadership-weekly-update` again to go through first-time setup.
