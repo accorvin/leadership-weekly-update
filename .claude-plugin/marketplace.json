@@ -1,0 +1,31 @@
+{
+  "name": "leadership-weekly-update",
+  "description": "Skill for collaboratively writing leadership weekly status updates to Confluence.",
+  "owner": {
+    "name": "accorvin"
+  },
+  "plugins": [
+    {
+      "name": "leadership-weekly-update",
+      "version": "1.0.0",
+      "description": "Capture leadership-level updates into Confluence weekly pages. Enforces high bar for inclusion, challenges off-category entries, manages weekly pages automatically. Categories: Executive Release Status, Blockers, Wins, Customer Highlights, Personnel Changes, Community Footprint.",
+      "category": "productivity",
+      "keywords": ["weekly-update", "leadership", "status-report", "confluence", "management"],
+      "author": {
+        "name": "Alex Corvin"
+      },
+      "homepage": "https://github.com/accorvin/leadership-weekly-update",
+      "repository": "https://github.com/accorvin/leadership-weekly-update",
+      "license": "Apache-2.0",
+      "source": {
+        "source": "github",
+        "repo": "accorvin/leadership-weekly-update",
+        "ref": "main"
+      },
+      "skills": [
+        "./.claude/skills"
+      ],
+      "strict": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "leadership-weekly-update",
+  "version": "1.0.0",
+  "description": "Claude Code skill for collaboratively writing leadership weekly status updates to Confluence. Enforces a high bar — challenges vague or off-category entries. Writes polished, executive-appropriate bullets grouped into 6 leadership categories.",
+  "author": {
+    "name": "Alex Corvin",
+    "email": "acorvin@redhat.com"
+  },
+  "homepage": "https://github.com/accorvin/leadership-weekly-update",
+  "repository": "https://github.com/accorvin/leadership-weekly-update",
+  "license": "Apache-2.0",
+  "keywords": ["weekly-update", "leadership", "status-report", "confluence", "management"]
+}
