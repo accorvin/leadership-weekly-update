@@ -47,16 +47,12 @@ cat ~/.claude/leadership-weekly-update.json 2>/dev/null
      ```
    - Bare numeric ID: use directly, then ask for space key.
 3. Validate via `mcp__atlassian__getConfluencePage`. If it fails, report error and ask again.
-4. Ask: "What is your name and Kerberos ID? (e.g., Alex Corvin / acorvin)" — used for attribution.
-5. Save config:
+4. Save config:
    ```json
    {
      "parent_page_id": "<page_id>",
      "space_key": "<space_key>",
-     "parent_page_url": "<full_url>",
-     "team_members": {
-       "Full Name": "kerberos_id"
-     }
+     "parent_page_url": "<full_url>"
    }
    ```
 6. Populate the landing page if it looks like a placeholder (no `## How It Works` section):
@@ -118,7 +114,6 @@ Page title: `Leadership Weekly Update — {monday}`. Store `monday`, `friday`, a
 From the input, extract:
 - What happened or what the status is
 - Which release, customer, person, or initiative it relates to
-- Who should be attributed (ask if not obvious)
 - Any links already mentioned
 - Whether this is forward-looking or already completed
 
@@ -193,18 +188,15 @@ Write a polished, executive-appropriate bullet:
 - **State the outcome or status first**, not the activity
 - **Include the release/product/customer name** explicitly
 - **Link** to relevant Jira, doc, or external reference if the user provided one
-- **Attribution** at the end: `(Name)` linked to Rover profile — `[Full Name](https://rover.redhat.com/people/profile/{kerberos_id})`
 - Write for someone who reads 50 bullets a week and has 10 seconds per item
 
 **Formatting examples (good vs. bad):**
 
-❌ `Working on RHOAI 3.5 GA readiness tasks. (Alex)`
-✅ `RHOAI 3.5 GA is on track for June 20; all P1 blockers resolved as of this week. (Alex)`
+❌ `Working on RHOAI 3.5 GA readiness tasks.`
+✅ `RHOAI 3.5 GA is on track for June 20; all P1 blockers resolved as of this week.`
 
 ❌ `Had a call with Customer X about their AI platform needs.`
-✅ `[Customer X] Executive briefing completed; they are evaluating RHOAI for production deployment in Q3. Follow-up POC scoped for July. (Alex)`
-
-**Rover profile linking:** Check `team_members` in config. If unknown, ask: *"What's [Name]'s Kerberos ID?"* and save it to config.
+✅ `[Customer X] Executive briefing completed; they are evaluating RHOAI for production deployment in Q3. Follow-up POC scoped for July.`
 
 ---
 
@@ -290,8 +282,8 @@ Call `mcp__atlassian__updateConfluencePage` on the parent page. Version comment:
 2. Locate the target section by its `## Section Name` header.
 3. If the section contains only `*(no entries yet)*`, replace the placeholder with the new bullet.
 4. Otherwise, append the new bullet after the last existing bullet in that section (before the next `##` header or `---`).
-5. Format as: `- Entry text. ([Name](https://rover.redhat.com/people/profile/{kerberos_id}))`
-6. **Never modify or remove another person's entry.**
+5. Format as: `- Entry text.`
+6. **Never modify or remove existing entries.**
 
 Call `mcp__atlassian__updateConfluencePage` with the page ID. Keep the title unchanged. Version comment: `"Added [Section Name] entry via /leadership-weekly-update"`.
 
