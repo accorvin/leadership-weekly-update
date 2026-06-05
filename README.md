@@ -23,6 +23,25 @@ Used by AI Engineering leaders to build the weekly update for their manager. Enf
 5. **Key Associate Moves & Personnel Changes** — hires, departures, promotions, org changes
 6. **Big News & Community Footprint** *(only if notable)* — conference talks, blog posts, upstream contributions
 
+## Prerequisites
+
+You need the official Atlassian Rovo MCP server configured in Claude Code.
+
+1. Add the MCP server (run once in your terminal):
+
+   ```bash
+   claude mcp add --scope user --transport http atlassian https://mcp.atlassian.com/v1/mcp/authv2
+   ```
+
+2. Authenticate with Atlassian:
+
+   - Start Claude Code (`claude`)
+   - Run the `/mcp` command
+   - Select the `atlassian` server (it will show as needing authentication)
+   - Complete the OAuth flow in your browser when prompted
+
+   Make sure your Atlassian account has `read_confluence` and `write_confluence` permissions.
+
 ## Installation
 
 Run these two commands once per machine:
